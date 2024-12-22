@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        /* styles.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.order-confirmation {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-message h2 {
+    font-size: 28px;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+.confirmation-message p {
+    font-size: 18px;
+    color: #555;
+}
+
+.order-details {
+    margin-top: 30px;
+}
+
+.order-details h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.order-info p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.status-info {
+    margin-top: 40px;
+}
+
+.status-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.status-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.status-info li {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Status Highlighting (For Dynamic Status) */
+.status-info li:nth-child(1) {
+    color: #4caf50; /* Green */
+}
+
+.status-info li:nth-child(2) {
+    color: #ff9800; /* Orange */
+}
+
+.status-info li:nth-child(3) {
+    color: #ff9800; /* Orange */
+}
+
+.status-info li:nth-child(4) {
+    color: #2196f3; /* Blue */
+}
+
+.status-info li:nth-child(5) {
+    color: #4caf50; /* Green */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-confirmation {
+        padding: 20px;
+    }
+
+    .order-details h3, .status-info h3 {
+        font-size: 20px;
+    }
+
+    .order-info p, .status-info li {
+        font-size: 16px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    
+    <section class="order-confirmation">
+        <div class="confirmation-message">
+            <h2>Your Order has been Confirmed!</h2>
+            <p>Thank you for shopping with us. Your order is now being processed.</p>
+        </div>
+        
+        <div class="order-details">
+            <h3>Order Details</h3>
+            <div class="order-info">
+                <p><strong>Order No:</strong> #12345</p>
+                <p><strong>Status:</strong> Processing</p>
+            </div>
+        </div>
+
+        <div class="status-info">
+            <h3>Status Updates</h3>
+            <ul>
+                <li>Order Placed</li>
+                <li>Processing</li>
+                <li>Shipped</li>
+                <li>Out for Delivery</li>
+                <li>Delivered</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // script.js
+
+// This example changes the order status dynamically based on user actions or time.
+document.addEventListener("DOMContentLoaded", function () {
+    const statusElement = document.querySelector('.status-info');
+    
+    // Example function to change order status dynamically
+    function updateOrderStatus(status) {
+        const statusList = statusElement.querySelectorAll('li');
+        
+        // Reset all list items' colors
+        statusList.forEach(item => item.style.color = '#555');
+        
+        // Apply color to the current status
+        if (status === "Processing") {
+            statusList[1].style.color = '#ff9800'; // Orange
+        } else if (status === "Shipped") {
+            statusList[2].style.color = '#ff9800'; // Orange
+        } else if (status === "Out for Delivery") {
+            statusList[3].style.color = '#2196f3'; // Blue
+        } else if (status === "Delivered") {
+            statusList[4].style.color = '#4caf50'; // Green
+        }
+    }
+
+    // For example, change the status to "Shipped" after 5 seconds
+    setTimeout(() => {
+        updateOrderStatus("Shipped");
+    }, 5000);
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - MyStore</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <!-- Navbar (Access to All Pages) -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html">MyStore</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="pm.html">Shop by Category</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="check.html">Checkout</a></li>
+            <li><a href="order.html">Order Confirmation</a></li>
+            <li><a href="search.html">Search</a></li> <!-- Added Search Link -->
+        </ul>
+    </nav>
+
+    <!-- Sliders Section -->
+    <section class="slider">
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="images/slider1.avif" alt="Slide 1">
+                <div class="slide-text">
+                    <h2>Welcome to MyStore</h2>
+                    <p>Shop the best products at unbeatable prices!</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/slider2.avif" alt="Slide 2">
+                <div class="slide-text">
+                    <h2>New Arrivals</h2>
+                    <p>Check out our latest products!</p>
+                </div>
+            </div>
+            <div class="slide active">
+                <img src="images/slider3.avif" alt="Slide 3">
+                <div class="slide-text">
+                    <h2>Welcome to MyStore</h2>
+                    <p>Shop the best products at unbeatable prices!</p>
+                </div>
+            </div>
+            <div class="slide active">
+                <img src="images/slider4.avif" alt="Slide 4">
+                <div class="slide-text">
+                    <h2>Welcome to MyStore</h2>
+                    <p>Shop the best products at unbeatable prices!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop by Category Section -->
+    <section class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category-list">
+            <div class="category-item">
+                <img src="images/headphone.avif" alt="Category 1">
+                <h3>Electronics</h3>
+            </div>
+            <div class="category-item">
+                <img src="images/clothes.avif" alt="Category 2">
+                <h3>Clothing</h3>
+            </div>
+            <div class="category-item">
+                <img src="images/access.avif" alt="Category 3">
+                <h3>Accessories</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Products Section -->
+    <section class="latest-products">
+        <h2>Latest Products</h2>
+        <div class="product-list">
+            <div class="product-item">
+                <a href="view.html"> <!-- Link to product view page -->
+                    <img src="images/dryer.avif" alt="Product 1">
+                    <h4>Hair Dryer</h4>
+                    <p>$99.99</p>
+                </a>
+            </div>
+            <div class="product-item">
+                <a href="view1.html"> <!-- Link to product view page -->
+                    <img src="images/jacket.avif" alt="Product 2">
+                    <h4>Jackets</h4>
+                    <p>$49.99</p>
+                </a>
+            </div>
+            <div class="product-item">
+                <a href="veiw2.html"> <!-- Link to product view page -->
+                    <img src="images/phone.avif" alt="Product 3">
+                    <h4>SmartPhones</h4>
+                    <p>$79.99</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Features</h2>
+        <div class="feature-item">
+            <h3>Free Shipping</h3>
+            <p>Enjoy free shipping on all orders above $50.</p>
+        </div>
+        <div class="feature-item">
+            <h3>24/7 Support</h3>
+            <p>We offer customer support 24/7 for your convenience.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Easy Returns</h3>
+            <p>Hassle-free returns within 30 days of purchase.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 MyStore | All Rights Reserved</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn" onclick="scrollToTop()">↑</button>
+
+    <script src="home.js"></script>
+</body>
+</html>

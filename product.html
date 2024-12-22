@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category View</title>
+    <style>
+        /* styles.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.category-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.category-item {
+    width: 30%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+    transform: scale(1.05);
+}
+
+.category-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.category-item-details {
+    padding: 15px;
+}
+
+.category-item h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.short-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .category-item {
+        width: 48%; /* Two columns for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .category-item {
+        width: 100%; /* Full-width on very small screens */
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    
+    <section class="category-page">
+        <h2>Product Categories</h2>
+
+        <div class="category-list">
+            <div class="category-item">
+                <a href="view.html"><img src="images/access.avif" alt="Category 1" class="category-item-image">
+                <div class="category-item-details">
+                    <h3>Accessories</h3>
+                    <p class="short-description">Explore a wide range of accessories products that are perfect for your needs.</p>
+                </div>
+                </a>
+            </div>
+
+            <div class="category-item">
+                <a href="view1.html"><img src="images/jacket.avif" alt="Category 2" class="category-item-image">
+                <div class="category-item-details">
+                    <h3>Jackets</h3>
+                    <p class="short-description">Find the best products in jackets with excellent quality and price.</p>
+                </div>
+                </a>
+            </div>
+
+            <div class="category-item">
+                <a href="veiw2.html"><img src="images/phone.avif" alt="Category 3" class="category-item-image">
+                <div class="category-item-details">
+                    <h3>SmartPhones</h3>
+                    <p class="short-description">Discover amazing smartphones products for all your needs.</p>
+                </div>
+            </a>
+            </div>
+
+            <!-- More categories can be added here -->
+        </div>
+    </section>
+
+    <script>
+        // script.js
+
+// Example JavaScript to handle category clicks (if you want to navigate or filter)
+document.querySelectorAll('.category-item').forEach(item => {
+    item.addEventListener('click', () => {
+        alert('You clicked on a category!');
+        // Here, you can add more logic to filter or navigate to a category-specific page.
+    });
+});
+
+    </script>
+</body>
+</html>

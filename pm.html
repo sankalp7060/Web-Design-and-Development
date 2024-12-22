@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Page</title>
+    <style>
+        /* styles.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.products-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.filters {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.filter-category ul {
+    list-style-type: none;
+}
+
+.filter-category li {
+    margin-bottom: 10px;
+}
+
+.filter-price {
+    margin-top: 20px;
+}
+
+#price-range {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#price-label {
+    font-size: 18px;
+}
+
+.products-list {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.product-item img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-item h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-item .price {
+    font-size: 16px;
+    color: #28a745;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .products-page {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filters {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <section class="products-page">
+        <!-- Filters Section -->
+        <div class="filters">
+            <div class="filter-category">
+                <h3>Category</h3>
+                <ul id="category-list">
+                    <li><input type="checkbox" class="category-filter" value="Electronics"> Electronics</li>
+                    <li><input type="checkbox" class="category-filter" value="Clothing"> Clothing</li>
+                    <li><input type="checkbox" class="category-filter" value="Accessories"> Accessories</li>
+                </ul>
+            </div>
+            <div class="filter-price">
+                <h3>Price Range</h3>
+                <input type="range" id="price-range" min="0" max="1000" step="10" value="1000" oninput="updatePriceRange()">
+                <span id="price-label">$0 - $1000</span>
+            </div>
+        </div>
+
+        <!-- Products List Section -->
+        <div class="products-list">
+            <div class="product-item" data-category="Electronics" data-price="299">
+                <img src="images/dryer1.avif" alt="Product 1">
+                <h4>Philips Hair Dryer 1</h4>
+                <p class="price">$89.99</p>
+            </div>
+            <div class="product-item" data-category="Clothing" data-price="49">
+                <img src="images/jacket1.webp" alt="Product 2">
+                <h4>Lunon Jacket Albrto</h4>
+                <p class="price">$49.99</p>
+            </div>
+            <div class="product-item" data-category="Accessories" data-price="79">
+                <img src="images/dryer2.webp" alt="Product 3">
+                <h4>Havels Hair Dryer 2</h4>
+                <p class="price">$79.99</p>
+            </div>
+            <div class="product-item" data-category="Electronics" data-price="999">
+                <img src="images/iphone16.avif" alt="Product 4">
+                <h4>Iphone 16 Pro</h4>
+                <p class="price">$199.99</p>
+            </div>
+            <!-- Add more products as necessary -->
+        </div>
+    </section>
+
+    <script>
+        // script.js
+
+// Update the price range label when the slider is moved
+function updatePriceRange() {
+    const priceRange = document.getElementById("price-range").value;
+    const priceLabel = document.getElementById("price-label");
+    priceLabel.textContent = `$0 - $${priceRange}`;
+    filterProducts();
+}
+
+// Filter products by category and price range
+function filterProducts() {
+    const selectedCategories = Array.from(document.querySelectorAll(".category-filter:checked")).map(checkbox => checkbox.value);
+    const maxPrice = document.getElementById("price-range").value;
+
+    // Get all product items
+    const productItems = document.querySelectorAll(".product-item");
+
+    productItems.forEach(item => {
+        const category = item.getAttribute("data-category");
+        const price = parseFloat(item.getAttribute("data-price"));
+
+        // Check if the product matches selected filters
+        const isCategoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
+        const isPriceMatch = price <= maxPrice;
+
+        // Show or hide the product based on filters
+        if (isCategoryMatch && isPriceMatch) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
+
+// Event listeners for category filters
+document.querySelectorAll(".category-filter").forEach(checkbox => {
+    checkbox.addEventListener("change", filterProducts);
+});
+
+// Initialize the filters
+filterProducts();
+
+    </script>
+</body>
+</html>
